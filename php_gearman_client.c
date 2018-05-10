@@ -275,11 +275,7 @@ PHP_FUNCTION(gearman_client_add_server) {
                 php_error_docref(NULL, E_WARNING, "%s",
                                                  gearman_client_error(&(obj->client)));
                 RETURN_FALSE;                         
-        }            
-
-        if (!gearman_client_set_server_option(&(obj->client), "exceptions", (sizeof("exceptions") - 1))) {
-                GEARMAN_EXCEPTION("Failed to set exception option", 0);
-        }            
+        }
 
         RETURN_TRUE;
 }
@@ -304,10 +300,6 @@ PHP_FUNCTION(gearman_client_add_servers) {
                 php_error_docref(NULL, E_WARNING, "%s",
                                                  gearman_client_error(&(obj->client)));
                 RETURN_FALSE;
-        }
-
-        if (!gearman_client_set_server_option(&(obj->client), "exceptions", (sizeof("exceptions") - 1))) {
-                GEARMAN_EXCEPTION("Failed to set exception option", 0);
         }
 
         RETURN_TRUE;
